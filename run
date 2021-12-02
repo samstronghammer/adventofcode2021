@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if (( $# != 1 )); then
+    >&2 echo "Illegal number of parameters"
+    exit 1
+fi
+
+CURRDIR=`pwd`
+RUNDIR=`dirname $(realpath $0)`/day$1
+
+if [ -d "$RUNDIR" ]; then
+  cd $RUNDIR
+  g++ -o ./day$1 ./day$1.cpp ../util/util.cpp && chmod u+x ./day$1 && ./day$1
+  cd $CURRDIR
+  exit 0
+fi
+
+>&2 echo "Directory $RUNDIR does not exist"
+cd $CURRDIR
+
+
