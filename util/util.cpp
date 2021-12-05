@@ -4,18 +4,19 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm> 
+#include <vector>
 
 using namespace std;
 
-static inline void rtrim(std::string &s) {
+static inline void rtrim(string &s) {
     s.erase(find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
-        return !std::isspace(ch);
+        return !isspace(ch);
     }).base(), s.end());
 }
 
-list<string> getInputList() {
-    list<string> lines = {};
-    fileToList("in.txt", lines);
+vector<string> getInputVector() {
+    vector<string> lines = {};
+    fileToVector("in.txt", lines);
     return lines;
 }
 
@@ -23,14 +24,14 @@ int stringToInt(string s) {
     return stoi(s);
 }
 
-list<int> stringListToIntList(list<string> lines) {
-    list<int> ints = {};
+vector<int> stoiVector(vector<string>& lines) {
+    vector<int> ints = {};
     ints.resize(lines.size());
     transform(lines.begin(), lines.end(), ints.begin(), stringToInt);
     return ints;
 }
 
-void fileToList(const char* filename, list<string>& lines) {
+void fileToVector(const char* filename, vector<string>& lines) {
     lines.clear();
     ifstream file(filename);
     if (!file) {
@@ -42,4 +43,15 @@ void fileToList(const char* filename, list<string>& lines) {
         rtrim(line);
         lines.push_back(line);
     }
+}
+
+vector<string> split(const string &text, char sep) {
+  vector<string> tokens;
+  size_t start = 0, end = 0;
+  while ((end = text.find(sep, start)) != string::npos) {
+    tokens.push_back(text.substr(start, end - start));
+    start = end + 1;
+  }
+  tokens.push_back(text.substr(start));
+  return tokens;
 }

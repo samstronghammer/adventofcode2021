@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    list<string> lines = getInputList();
+    vector<string> lines = getInputVector();
     int depth = 0;
     int distance = 0;
     int depth2 = 0;

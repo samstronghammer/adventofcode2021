@@ -1,13 +1,16 @@
 #include <string>
 #include <list>
+#include <vector>
 
 using namespace std;
 
-static inline void rtrim(std::string &s);
+static inline void rtrim(string &s);
 
-list<string> getInputList();
+vector<string> getInputVector();
 
-list<int> stringListToIntList(list<string> lines);
+vector<int> stoiVector(vector<string>& lines);
 
-void fileToList(const char* filename, list<string>& lines);
+void fileToVector(const char* filename, vector<string>& lines);
+
+vector<string> split(const string &text, char sep);
 
