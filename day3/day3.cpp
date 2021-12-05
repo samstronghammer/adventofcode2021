@@ -32,7 +32,8 @@ int supportRating(list<string> lines, bool oxygen, int bitIndex = 0) {
 
 
 int main() {
-    list<string> lines = getInputList();
+    vector<string> lineVector = getInputVector();
+    list<string> lines(lineVector.begin(), lineVector.end());
     int bitLength = lines.front().length();
     int numOnes[bitLength] = {0};
     for (string const &s: lines) {
