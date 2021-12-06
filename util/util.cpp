@@ -45,12 +45,12 @@ void fileToVector(const char* filename, vector<string>& lines) {
     }
 }
 
-vector<string> split(const string &text, char sep) {
+vector<string> split(const string &text, string sep) {
   vector<string> tokens;
   size_t start = 0, end = 0;
   while ((end = text.find(sep, start)) != string::npos) {
     tokens.push_back(text.substr(start, end - start));
-    start = end + 1;
+    start = end + sep.length();
   }
   tokens.push_back(text.substr(start));
   return tokens;

@@ -51,7 +51,7 @@ Score getScore(vector<vector<int>>& board, vector<int>& draws) {
 
 int main() {
     vector<string> lines = getInputVector();
-    vector<string> drawStrings = split(lines[0], ',');
+    vector<string> drawStrings = split(lines[0], ",");
     vector<int> draws = stoiVector(drawStrings);
     vector<vector<vector<int>>> boards;
     for (int i = 2; i < lines.size(); i += 6) {
