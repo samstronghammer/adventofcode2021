@@ -12,5 +12,5 @@ vector<int> stoiVector(vector<string>& lines);
 
 void fileToVector(const char* filename, vector<string>& lines);
 
-vector<string> split(const string &text, char sep);
+vector<string> split(const string &text, string sep);
 
