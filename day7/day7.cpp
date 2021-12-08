@@ -14,8 +14,7 @@ int main() {
   vector<string> crabStrings = split(lines[0], ",");
   vector<int> crabPositions = stoiVector(crabStrings);
   sort(crabPositions.begin(), crabPositions.end());
-  int goal = crabPositions[crabPositions.size() / 2];
-  int p1fuel = 0;
+  int goal = crabPositions[crabPositions.size() / 2], p1fuel = 0;
   for (int pos : crabPositions) {
     p1fuel += abs(pos - goal);
   }
