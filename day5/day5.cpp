@@ -28,8 +28,8 @@ int main() {
     lines.push_back({{stoi(start[0]), stoi(start[1])}, {stoi(end[0]), stoi(end[1])}});
   }
 
-  unordered_map<string, int> pointCount(50);
-  unordered_map<string, int> pointCount2(50);
+  unordered_map<Point, int, PointHash> pointCount(50);
+  unordered_map<Point, int, PointHash> pointCount2(50);
 
   for (int i = 0; i < lines.size(); i++) {
     Line line = lines[i];
@@ -38,20 +38,19 @@ int main() {
     Point p = {line.start.x - dx, line.start.y - dy};
     do {
       p = p + (Point) {dx, dy};
-      string pString = p.toString();
       if (horzVert(line)) {
-        pointCount[pString]++;
+        pointCount[p]++;
       }
-      pointCount2[pString]++;
+      pointCount2[p]++;
     } while (p != line.end);
   }
 
   int numCommonPoints = 0;
-  for (pair<string, int> p : pointCount) {
+  for (pair<Point, int> p : pointCount) {
     numCommonPoints += (p.second > 1);
   }
   int numCommonPoints2 = 0;
-  for (pair<string, int> p : pointCount2) {
+  for (pair<Point, int> p : pointCount2) {
     numCommonPoints2 += (p.second > 1);
   }
 
