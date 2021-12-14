@@ -3,34 +3,38 @@
 #include <vector>
 
 struct Point {
-    int x;
-    int y;
+  int x;
+  int y;
 
-    bool operator == (const Point& other) const {
-        return x == other.x && y == other.y;
-    }
+  bool operator == (const Point& other) const {
+    return x == other.x && y == other.y;
+  }
 
-    bool operator != (const Point& other) const {
-        return x != other.x || y != other.y;
-    }
+  bool operator != (const Point& other) const {
+    return x != other.x || y != other.y;
+  }
 
-    Point operator + (const Point& other) const {
-        return {x + other.x, y + other.y};
-    }
+  Point operator + (const Point& other) const {
+    return {x + other.x, y + other.y};
+  }
 
-    std::string toString() const {
-        return std::to_string(x) + "," + std::to_string(y);
-    }
+  Point operator - (const Point& other) const {
+    return {x - other.x, y - other.y};
+  }
 
-    std::vector<Point> adj4() const {
-      std::vector<Point> adj = {{x, y - 1}, {x - 1, y}, {x + 1, y}, {x, y + 1}};
-      return adj;
-    }
+  std::string toString() const {
+      return std::to_string(x) + "," + std::to_string(y);
+  }
 
-    std::vector<Point> adj8() const {
-      std::vector<Point> adj = {{x - 1, y - 1}, {x, y - 1}, {x + 1, y - 1}, {x - 1, y}, {x + 1, y}, {x - 1, y + 1}, {x, y + 1}, {x + 1, y + 1}};
-      return adj;
-    }
+  std::vector<Point> adj4() const {
+    std::vector<Point> adj = {{x, y - 1}, {x - 1, y}, {x + 1, y}, {x, y + 1}};
+    return adj;
+  }
+
+  std::vector<Point> adj8() const {
+    std::vector<Point> adj = {{x - 1, y - 1}, {x, y - 1}, {x + 1, y - 1}, {x - 1, y}, {x + 1, y}, {x - 1, y + 1}, {x, y + 1}, {x + 1, y + 1}};
+    return adj;
+  }
 };
 
 struct PointHash {
