@@ -37,7 +37,6 @@ long execute(long input, vector<string> commands) {
         variables[toks[1]] = variables[toks[1]] / arg2;
       }
     }
-    //cout << "w: " << variables["w"] << " x: " << variables["x"] << " y: " << variables["y"] << " z: " << variables["z"] << "   " << command << '\n';
   }
   return variables["z"];
 }
@@ -54,6 +53,5 @@ int main() {
   } else {
     exit(1);
   }
-  
   return 0;
 }
