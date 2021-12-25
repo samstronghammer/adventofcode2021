@@ -141,5 +141,5 @@ int main() {
   }
 
   cout << "Part 1: " << 18282 << '\n'; // Since the input changed for p2, the p1 solution is hardcoded here.
-  cout << "Part 2: " << totalCost(amphipods) << '\n';
+  cout << "Part 2: " << totalCost(amphipods) << '\n'; // runs for a couple minutes.
 }
